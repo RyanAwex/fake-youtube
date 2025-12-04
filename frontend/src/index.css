@@ -1,0 +1,322 @@
+/* CSS Styling */
+:root {
+  --body-bg: #121212;
+  --navbar-bg: #212121;
+  --card-bg: #181818;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --accent-color: #0099ff;
+  --border-color: #383838;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+.navbar-logo .material-icons {
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+.logo-text {
+  margin-left: 10px;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: none;
+}
+
+.search-bar {
+  display: flex;
+  flex-grow: 1;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border-color);
+  /* border-right: none; */
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  border-radius: 20px 0 0 20px;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.search-bar button {
+  padding: 0 1.5rem;
+  border: 1px solid var(--border-color);
+  background-color: #313131;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar button:hover {
+  background-color: #414141;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-right .material-icons {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.navbar-right .material-icons:hover {
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.profile-pic:hover {
+  opacity: 0.7;
+  transform: scale(1.03);
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  padding: 1.5rem 0;
+  background-color: var(--navbar-bg);
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+  transition: transform 0.3s ease-in-out;
+  flex-shrink: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #383838;
+}
+
+.sidebar-item .material-icons {
+  color: var(--text-secondary);
+}
+
+.sidebar-item span {
+  font-size: 0.9rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 1rem 0;
+}
+
+/* Content Area */
+.content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  min-width: 0;
+}
+
+/* Header with Tags */
+.header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  /* Add these for hiding the scrollbar */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For IE and Edge */
+}
+/* Add this for hiding the scrollbar in WebKit browsers */
+.header::-webkit-scrollbar {
+  display: none;
+}
+
+.tag {
+  background-color: #383838;
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.tag:hover {
+  background-color: #4f4f4f;
+}
+
+.tag.active {
+  background-color: var(--accent-color);
+  color: var(--body-bg);
+  font-weight: 500;
+}
+
+/* Video Grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.video-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.video-card:hover {
+  transform: scale(1.01);
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #333;
+  object-fit: cover;
+}
+
+.video-details {
+  display: flex;
+  padding: 1rem;
+  gap: 0.8rem;
+}
+
+.channel-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #555;
+}
+
+.video-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+  color: white;
+}
+
+.channel-name {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.video-stats {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    height: calc(100vh - 60px);
+    transform: translateX(-100%);
+    z-index: 1100;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .menu-icon {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    display: none;
+  }
+  .navbar-left {
+    flex-grow: 1;
+  }
+  .navbar-right {
+    gap: 1rem;
+  }
+  .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 365px) {
+  .logo-text {
+    display: none;
+  }
+}
