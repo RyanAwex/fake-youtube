@@ -9,10 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://youtube-frontend-bay-six.vercel.app",
-    ],
+    origin: ["http://localhost:5173", `https://${process.env.FRONTEND_URL}`],
     credentials: true,
   })
 );
